@@ -1,11 +1,13 @@
 import 'package:go_router/go_router.dart';
 import 'package:nhatnd/examples/base_bloc_example/base_bloc_example_screen.dart';
 import 'package:nhatnd/examples/base_cubit_example/base_cubit_example_screen.dart';
+import 'package:nhatnd/presentation/screen/video_player_screen.dart';
 
 class AppRouter {
   static const _initialLocation = '/';
-  static const _baseBlocExample = '/';
+  static const _baseBlocExample = '/base_bloc';
   static const _baseCubitExample = '/base_cubit';
+  static const _videoPlayer = '/';
 
   static String get baseBlocExample => _baseBlocExample;
 
@@ -23,6 +25,7 @@ class AppRouter {
   void _initialize({String initialLocation = _initialLocation}) {
     router = GoRouter(
       routes: [
+        GoRoute(path: _videoPlayer, builder: (context, state) => VideoPlayerScreen()),
         GoRoute(
           path: _baseBlocExample,
           name: 'BaseBlocExample',

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:nhatnd/core/app_router.dart';
 
 import 'core/di/injection.dart';
@@ -12,6 +13,7 @@ Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await AppInitialization.I.initApp();
+    MediaKit.ensureInitialized();
     runApp(MyApp());
   }, _onError)?.catchError((error, stackTrace) {
     _onError(error, stackTrace);
